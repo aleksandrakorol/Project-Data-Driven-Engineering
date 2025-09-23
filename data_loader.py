@@ -1,6 +1,6 @@
 import pandas as pd
 
-File_ID = "1HBtpv8kD75_lFkkOiwhrYzz9TcDml_OP"
+File_ID = "1RtRInobd1gXIJ6yMKnNjgi3QjuUZo9kW"
 # File_ID - ID файла (наш dataset) на Google Drive
 
 File_url = f"https://drive.google.com/uc?id={File_ID}"
@@ -11,3 +11,4 @@ raw_data = pd.read_csv(File_url)
 
 print(raw_data.head(10))
 # выводим на экран первые 10 строк для проверки
+
