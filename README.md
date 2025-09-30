@@ -23,3 +23,21 @@ python data_loader.py
 - Result comand print(raw_data.head(10)):
 
 <img width="1453" height="1007" alt="Снимок экрана" src="https://github.com/user-attachments/assets/3c14ba9b-4880-4e3a-b9df-c57601684768" />
+
+# DTypes
+Watch what all the data types are in a dataframe, use 
+print(raw_data.info())
+
+Result:
+<img width="1920" height="940" alt="Снимок экрана (532)" src="https://github.com/user-attachments/assets/d5ba9339-cea5-4a1c-b3e5-92dc286568be" />
+
+Change types in a dataframe
+
+Watch what all the data types are in a dataframe after conversation, use 
+print(raw_data.info())
+
+Result:
+<img width="1713" height="946" alt="Снимок экрана (534)" src="https://github.com/user-attachments/assets/6b2e8bf3-3f0e-41ed-bb49-ca39dc0fb8ae" />
+
+Save conversation data on csv
+raw_data.to_csv("conversion_data.csv", index=False)
