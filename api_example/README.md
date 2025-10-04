@@ -1,8 +1,10 @@
 # API
 # Used API
-https://www.hko.gov.hk/en/abouthko/opendata_intro.htm
+https://api.data.gov.sg/v1/environment/air-temperature
+
 Description:
-This API offers a comprehensive suite of weather information, earthquake details, and climate data.
+
+These data are collected from automated weather instruments, and is automatically published as soon as it is generated.
 # API Reading 
 # Preparation
 Installation Miniconda from official website for your system: 
