@@ -9,7 +9,7 @@ filename_out = "weather.csv"
 
 
 def load_data_from_api(url: str) -> list[dict]:
-    # Загружаем данные о температуре воздуха в Сингапуре из API
+    # Загружаем данные о погоде из API
     response = requests.get(url, headers={"Content-Type": "application/json"})
     if response.status_code == 200:
         weather = response.json()
@@ -40,3 +40,4 @@ if __name__ == "__main__":
     print(f"Получено данных: {len(weather_df)}")
     dataset = convert_to_dataset_and_save_csv(weather_df, filename_out)
     print(dataset.head(10))
+
