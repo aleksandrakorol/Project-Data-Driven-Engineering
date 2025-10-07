@@ -1,10 +1,10 @@
 # API
 # Used API
-https://api.data.gov.sg/v1/environment/air-temperature
+http://www.7timer.info/bin/api.pl?lon=113.17&lat=23.09&product=astro&output=json
 
 Description:
 
-These data are collected from automated weather instruments, and is automatically published as soon as it is generated.
+Weather forecasts for astronomy.
 # API Reading 
 # Preparation
 Installation Miniconda from official website for your system: 
@@ -23,7 +23,8 @@ https://www.anaconda.com/docs/getting-started/miniconda/install
 
 python api_reader.py
 
-- Result comand print(raw_data.head(10)):
+- Result:
 
-<img width="1453" height="1007" alt="Снимок экрана" src="https://github.com/user-attachments/assets/3c14ba9b-4880-4e3a-b9df-c57601684768" />
+<img width="1046" height="392" alt="Снимок экрана (536)" src="https://github.com/user-attachments/assets/5cd3e93a-dc4f-4cce-84f1-6323ef1e17f9" />
+
 
