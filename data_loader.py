@@ -47,7 +47,8 @@ raw_data["elevation"] = raw_data["elevation"].astype("bool")
 print(raw_data.info())
 # выводим информацию о данных датафрейма после приведения типов
 
-raw_data.to_csv("conversion_data.csv", index=False)
-# сохраняем обработанные данные в формате csv
+raw_data.to_parquet("conversion_data.parquet", index=False)
+# сохраняем обработанные данные в формате parquet
+
 
 
