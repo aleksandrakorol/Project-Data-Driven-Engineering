@@ -39,5 +39,5 @@ print(raw_data.info())
 Result:
 <img width="1713" height="946" alt="Снимок экрана (534)" src="https://github.com/user-attachments/assets/6b2e8bf3-3f0e-41ed-bb49-ca39dc0fb8ae" />
 
-Save conversation data on csv
-raw_data.to_csv("conversion_data.csv", index=False)
+Save conversation data on parquet
+raw_data.to_parquet("conversion_data.parquet", index=False)
