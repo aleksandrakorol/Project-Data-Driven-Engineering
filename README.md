@@ -37,7 +37,7 @@ Watch what all the data types are in a dataframe after conversation, use
 print(raw_data.info())
 
 Result:
-<img width="1713" height="946" alt="Снимок экрана (534)" src="https://github.com/user-attachments/assets/6b2e8bf3-3f0e-41ed-bb49-ca39dc0fb8ae" />
+<img width="1342" height="837" alt="2025-10-19_22-24-01" src="https://github.com/user-attachments/assets/7ca81e2c-beda-4c43-a8a6-ed3b11305313" />
 
 Save conversation data on parquet
 raw_data.to_parquet("conversion_data.parquet", index=False)
