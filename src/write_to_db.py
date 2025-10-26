@@ -1,20 +1,15 @@
 import pandas as pd
-import sqlite3
+import os
+from dotenv import load_dotenv
 from sqlalchemy import create_engine, text
 
-#Подключаемся к базе данных creds для дальнейшего использования её содержимого
-with sqlite3.connect("creds.db") as conn:
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM access LIMIT 1;")
-    row_values = cursor.fetchone()
-    col_names = [desc[0] for desc in cursor.description]
-    creds = dict(zip(col_names, row_values))
+#Загружаем переменные из .env
+load_dotenv()
 
-#Записываем учетные данные
-url = creds.get("url")
-port = creds.get("port")
-user = creds.get("user")
-password = creds.get("pass")
+url = os.getenv("url")
+port = os.getenv("port")
+user = os.getenv("user")
+password = os.getenv("pass")
 
 #Подключаемся к базе данных homework
 engine = create_engine(f"postgresql+psycopg2://{user}:{password}@{url}:{port}/homeworks", echo=False, future=True)
