@@ -41,3 +41,7 @@ Result:
 
 Save conversation data on parquet
 raw_data.to_parquet("conversion_data.parquet", index=False)
+
+# EDA
+Visualisation EDA:
+
