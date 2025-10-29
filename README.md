@@ -45,3 +45,4 @@ raw_data.to_parquet("conversion_data.parquet", index=False)
 # EDA
 Visualisation EDA:
 
+https://nbviewer.org/github/aleksandrakorol/Project-Data-Driven-Engineering/blob/main/notebooks/EDA.ipynb
