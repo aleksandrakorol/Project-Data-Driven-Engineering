@@ -1,6 +1,6 @@
 import pandas as pd
 
-File_ID = "1I9RExWq0gAMGx5UEkcvuEaDna-azWfK5"
+File_ID = "1N7W2_t1fhUJxC2UiDAEkq706xU9LsZ4O"
 # File_ID - ID файла (наш dataset) на Google Drive
 
 File_url = f"https://drive.google.com/uc?id={File_ID}"
@@ -49,6 +49,7 @@ print(raw_data.info())
 
 raw_data.to_parquet("conversion_data.parquet", index=False)
 # сохраняем обработанные данные в формате parquet
+
 
 
 
