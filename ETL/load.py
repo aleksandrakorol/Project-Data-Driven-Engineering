@@ -2,9 +2,8 @@ import pandas as pd
 import os
 
 from pathlib import Path
-
 from dotenv import load_dotenv
-
+from .extract import ensure_dir
 from sqlalchemy import create_engine, text
 
 load_dotenv()
@@ -12,7 +11,7 @@ load_dotenv()
 
 def save_data_parquet(clean_data: pd.DataFrame, root: Path) -> Path:
     processed_dir = root / "processed"
-    processed_dir.mkdir(parents=True, exist_ok=True)
+    ensure_dir(processed_dir)
     out_path = processed_dir / "clean_data.parquet"
     clean_data.to_parquet(out_path, index=False)
     return out_path
@@ -38,8 +37,6 @@ def validate_output(clean_data: pd.DataFrame) -> None:
         "has_sewage_system",
         "fitspatrick",
         "region",
-        "diametric_1",
-        "diametric_2",
         "diagnostic",
         "itch",
         "grew",
@@ -67,22 +64,19 @@ def get_connect_database():
     user = os.getenv("user")
     password = os.getenv("pass")
 
-    # Подключаемся к базе данных homework
-    engine = create_engine(
-        f"postgresql+psycopg2://{user}:{password}@{url}:{port}/homeworks",
-        echo=False,
-        future=True,
-    )
+    connect_url = f"postgresql+psycopg2://{user}:{password}@{url}:{port}/homeworks"
+
     print("Подключение к homeworks прошло успешно")
-    return engine
+    return create_engine(connect_url)
 
 
-def load_dataset_in_database():
+def load_dataset_in_database(engine):
+
     df = pd.read_parquet("conversion_data.parquet").head(100)
     # Загружаем датасет в базу данных homework
     df.to_sql(
         name="korol",
-        con=get_connect_database,
+        con=engine,
         schema="public",
         if_exists="replace",
         index=False,
@@ -91,8 +85,8 @@ def load_dataset_in_database():
     return None
 
 
-def check_table_in_database():
-    with get_connect_database.begin() as conn:
+def check_table_in_database(engine):
+    with engine.begin() as conn:
         result = conn.execute(text("SELECT COUNT(*) FROM public.korol"))
         print(f"Записано строк: {result.fetchone()[0]}")
     return result
