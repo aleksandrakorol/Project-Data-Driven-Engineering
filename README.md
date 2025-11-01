@@ -1,8 +1,40 @@
 # Project-Skin-Cancer
+В ходе данного проекта будет рассмотен датасет по кожным поражениям. 
+
+В частности, выделяется две основные группы: 
+- болезни рака кожи (базальноклеточная карцинома BCC, плоскоклеточная карцинома MEL, болезнь Боуэна SCC);
+- кожные заболевания (актинический кератоз ACK, невус NEV, себорейный кератоз SEK).
+
+<img width="700" height="525" alt="image" src="https://github.com/user-attachments/assets/480e1f75-c9ea-4afe-9319-a437fec3b31c" />
+
 # Dataset
 https://www.kaggle.com/datasets/mahdavi1202/skin-cancer
 
 https://drive.google.com/drive/folders/1HBtpv8kD75_lFkkOiwhrYzz9TcDml_OP?usp=sharing
+
+# Project Structure
+
+├── README.md                       
+├── pyproject.toml
+├── ETL
+│   ├── _init_.py              
+│   ├── extract.py
+│   ├── load.py
+│   ├── main.py                       
+│   │── transform.py
+│ 
+│── notebooks                  
+│   ├── EDA.ipynb
+│
+│── experiments/                
+│   ├── api_example/
+│   |   ├── api_reader.py
+│   |   ├── pyproject.toml
+│   |   └── README.md
+│   ├── src
+│   |   ├── write_to_db.py
+│   └── data_loader.py
+
 # Project activation guide 
 # Preparation
 Installation Miniconda from official website for your system: 
@@ -29,7 +61,7 @@ Watch what all the data types are in a dataframe, use
 print(raw_data.info())
 
 Result:
-<img width="1920" height="940" alt="Снимок экрана (532)" src="https://github.com/user-attachments/assets/d5ba9339-cea5-4a1c-b3e5-92dc286568be" />
+<img width="729" height="934" alt="Снимок экрана (549)" src="https://github.com/user-attachments/assets/579c2309-dd2a-4685-bd6c-8ec600762c4c" />
 
 Change types in a dataframe
 
@@ -37,7 +69,7 @@ Watch what all the data types are in a dataframe after conversation, use
 print(raw_data.info())
 
 Result:
-<img width="1342" height="837" alt="2025-10-19_22-24-01" src="https://github.com/user-attachments/assets/7ca81e2c-beda-4c43-a8a6-ed3b11305313" />
+<img width="775" height="857" alt="Снимок экрана (550)" src="https://github.com/user-attachments/assets/6c059b44-3568-46b2-970b-a940b3c82a2c" />
 
 Save conversation data on parquet
 raw_data.to_parquet("conversion_data.parquet", index=False)
@@ -46,3 +78,6 @@ raw_data.to_parquet("conversion_data.parquet", index=False)
 Visualisation EDA:
 
 https://nbviewer.org/github/aleksandrakorol/Project-Data-Driven-Engineering/blob/main/notebooks/EDA.ipynb
+
+# ETL
+
