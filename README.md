@@ -91,4 +91,3 @@ python -m etl.main --place data/raw/Scin_cancer.csv --table-name korol
 - EXTRACT: upload and save dataset
 - TRANSFORM: convert dtypes and clean from NaN
 - LOAD: write to parquet and load to database
-- 
