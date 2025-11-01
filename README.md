@@ -60,4 +60,23 @@ Visualisation EDA:
 https://nbviewer.org/github/aleksandrakorol/Project-Data-Driven-Engineering/blob/main/notebooks/EDA.ipynb
 
 # ETL
+ 
+ ETL
+ 
+│
 
+├── __init__.py
+
+├── extract.py
+
+│
+
+├── transform.py
+
+│
+
+├── load.py 
+
+│
+
+└── main.py                
