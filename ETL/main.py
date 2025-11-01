@@ -50,7 +50,7 @@ def etl_run(place: str, table_name: str) -> None:
         save_parquet = save_data_parquet(conversation_data, root())
         validate_parquet = validate_output(conversation_data)
         engine = get_connect_database()
-        load_to_db = load_dataset_in_database(engine)
+        load_to_db = load_dataset_in_database(engine, "korol", save_parquet)
         checking = check_table_in_database(engine)
     except Exception as e:
         print(f"\nОшибка при выгузке датасета: {e}")

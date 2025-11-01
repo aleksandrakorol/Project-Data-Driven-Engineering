@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 from .extract import ensure_dir
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine, text, MetaData, Table, Column
 
 load_dotenv()
 
@@ -70,17 +70,29 @@ def get_connect_database():
     return create_engine(connect_url)
 
 
-def load_dataset_in_database(engine):
+def load_dataset_in_database(engine, table_name: str, out_path: Path):
 
-    df = pd.read_parquet("conversion_data.parquet").head(100)
+    df = pd.read_parquet(out_path).head(100)
+
     # Загружаем датасет в базу данных homework
     df.to_sql(
-        name="korol",
+        table_name,
         con=engine,
         schema="public",
         if_exists="replace",
         index=False,
     )
+
+    with engine.begin() as connection:
+        connection.execute(
+            text(
+                f'ALTER TABLE public."{table_name}" DROP CONSTRAINT IF EXISTS {table_name}_pkey'
+            )
+        )
+        connection.execute(
+            text(f'ALTER TABLE public."{table_name}" ADD PRIMARY KEY (patient_id)')
+        )
+
     print("Таблица public.korol создана и заполнена")
     return None
 
