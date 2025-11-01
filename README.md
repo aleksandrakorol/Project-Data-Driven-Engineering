@@ -60,7 +60,8 @@ Visualisation EDA:
 https://nbviewer.org/github/aleksandrakorol/Project-Data-Driven-Engineering/blob/main/notebooks/EDA.ipynb
 
 # ETL
- 
+
+# ETL Structure
  ETL
  
 │
@@ -80,3 +81,14 @@ https://nbviewer.org/github/aleksandrakorol/Project-Data-Driven-Engineering/blob
 │
 
 └── main.py                
+
+- DB connection uses environment variables: host, port, name, user, password.
+
+# Runing
+
+python -m etl.main --place data/raw/Scin_cancer.csv --table-name korol
+
+- EXTRACT: upload and save dataset
+- TRANSFORM: convert dtypes and clean from NaN
+- LOAD: write to parquet and load to database
+- 
