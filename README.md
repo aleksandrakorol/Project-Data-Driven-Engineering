@@ -14,26 +14,6 @@ https://drive.google.com/drive/folders/1HBtpv8kD75_lFkkOiwhrYzz9TcDml_OP?usp=sha
 
 # Project Structure
 
-├── README.md                       
-├── pyproject.toml
-├── ETL
-│   ├── _init_.py              
-│   ├── extract.py
-│   ├── load.py
-│   ├── main.py                       
-│   │── transform.py
-│ 
-│── notebooks                  
-│   ├── EDA.ipynb
-│
-│── experiments/                
-│   ├── api_example/
-│   |   ├── api_reader.py
-│   |   ├── pyproject.toml
-│   |   └── README.md
-│   ├── src
-│   |   ├── write_to_db.py
-│   └── data_loader.py
 
 # Project activation guide 
 # Preparation
