@@ -2,12 +2,6 @@ import pandas as pd
 
 from pathlib import Path
 
-
-def load_scin_cancer_raw_data(place: str | Path) -> pd.DataFrame:
-  raw_data = pd.read_csv(place)
-  return raw_data
-
-
 def validate_load_data(raw_data: pd.DataFrame) -> None:
 
     if raw_data.empty:
@@ -29,8 +23,6 @@ def validate_load_data(raw_data: pd.DataFrame) -> None:
         "has_sewage_system",
         "fitspatrick",
         "region",
-        "diametric_1",
-        "diametric_2",
         "diagnostic",
         "itch",
         "grew",
@@ -49,11 +41,17 @@ def validate_load_data(raw_data: pd.DataFrame) -> None:
 
     return None
 
+def load_scin_cancer_raw_data(place: str | Path) -> pd.DataFrame:
+    raw_data = pd.read_csv(place)
+    validate_load_data(raw_data)
+    return raw_data
+
+def ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
 
 def raw_data_save_csv(raw_data: pd.DataFrame, root: Path) -> Path:
     raw_dir = root / "raw"
-    raw_dir.mkdir(parents=True, exist_ok=True)
+    ensure_dir(raw_dir)
     out_path = raw_dir / "Skin_cancer.csv"
     raw_data.to_csv(out_path, index=False)
-
     return out_path
