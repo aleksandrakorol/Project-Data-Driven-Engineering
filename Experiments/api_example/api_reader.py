@@ -1,6 +1,7 @@
 import pandas as pd
 from tqdm import tqdm
 import requests
+import json
 
 api_url = (
     "http://www.7timer.info/bin/api.pl?lon=113.17&lat=23.09&product=astro&output=json"
@@ -9,14 +10,18 @@ filename_out = "weather.csv"
 
 
 def load_data_from_api(url: str) -> list[dict]:
-    # Загружаем данные о погоде из API
-    response = requests.get(url, headers={"Content-Type": "application/json"})
-    if response.status_code == 200:
-        weather = response.json()
-        return weather
-    else:
-        print(f"Ошибка запроса API: сейчас статус {response.status_code}")
-        return []
+    # Загружаем данные о температуре воздуха в Сингапуре из API
+    try:
+        response = requests.get(url, headers={"Content-Type": "application/json"})
+        if response.status_code == 200:
+            weather = response.json()
+            return weather
+    except json.JSONDecodeError as e:
+        print(f"JSON Decode Eror: {e}")
+    except requests.exceptions.HTTPError as e:
+        print(f"HTTP Error: {e}")
+    except requests.exceptions.RequestException as e:
+        print(f"Request Error:{e}")
 
 
 def convert_to_dataset_and_save_csv(
@@ -40,4 +45,3 @@ if __name__ == "__main__":
     print(f"Получено данных: {len(weather_df)}")
     dataset = convert_to_dataset_and_save_csv(weather_df, filename_out)
     print(dataset.head(10))
-
