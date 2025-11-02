@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 from .extract import ensure_dir
-from sqlalchemy import create_engine, text, MetaData, Table, Column
+from sqlalchemy import create_engine, text
 
 load_dotenv()
 
@@ -102,3 +102,4 @@ def check_table_in_database(engine):
         result = conn.execute(text("SELECT COUNT(*) FROM public.korol"))
         print(f"Записано строк: {result.fetchone()[0]}")
     return result
+
