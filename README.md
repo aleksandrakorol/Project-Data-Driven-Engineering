@@ -101,11 +101,11 @@ If you want to work with dataset in GoogleDrive:
 python -m etl.main --place https://drive.google.com/uc?id=18Jp35qlgM0XFDRkD2_xrt630cbXQr_qv --table-name korol
  ```
 or
- ```
+
 If you want to work with uploading dataset:
  ```
 python -m etl.main --place data_engineering/data/raw/Skin_cancer.csv --table-name korol
-
+ ```
 
 - EXTRACT: upload and save dataset
 - TRANSFORM: convert dtypes and clean from NaN
