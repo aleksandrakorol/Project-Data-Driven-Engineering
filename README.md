@@ -20,6 +20,7 @@ https://drive.google.com/drive/folders/1HBtpv8kD75_lFkkOiwhrYzz9TcDml_OP?usp=sha
 Installation Miniconda from official website for your system: 
 https://www.anaconda.com/docs/getting-started/miniconda/install
 # Creation enviromental variables (conda + poetry)
+ ```
 1. conda create -n my_env python=3.13
 2. conda activate my_env
 3. pip install poetry
@@ -27,11 +28,12 @@ https://www.anaconda.com/docs/getting-started/miniconda/install
 5. cd project_scin_cancer
 6. poetry add jupyter pandas matplotlib numpy wget
 7. poetry install --no-root
+ ```
 # Activation
 - Write activate code:
-
+ ```
 python data_loader.py
-
+ ```
 - Result comand print(raw_data.head(10)):
 
 <img width="1453" height="1007" alt="Снимок экрана" src="https://github.com/user-attachments/assets/3c14ba9b-4880-4e3a-b9df-c57601684768" />
@@ -52,8 +54,9 @@ Result:
 <img width="775" height="857" alt="Снимок экрана (550)" src="https://github.com/user-attachments/assets/6c059b44-3568-46b2-970b-a940b3c82a2c" />
 
 Save conversation data on parquet
+ ```
 raw_data.to_parquet("conversion_data.parquet", index=False)
-
+ ```
 # EDA
 Visualisation EDA:
 
@@ -62,37 +65,26 @@ https://nbviewer.org/github/aleksandrakorol/Project-Data-Driven-Engineering/blob
 # ETL
 
 # ETL Structure
- ETL
- 
+ ```
+ETL
 │
-
 ├── __init__.py
-
 ├── extract.py
-
-│
-
 ├── transform.py
-
-│
-
 ├── load.py 
-
-│
-
 └── main.py                
-
+```
 - DB connection uses environment variables: host, port, name, user, password.
 
 # Runing
 If you want to work with dataset in GoogleDrive: 
-
+ ```
 python -m etl.main --place https://drive.google.com/uc?id=18Jp35qlgM0XFDRkD2_xrt630cbXQr_qv --table-name korol
-
+ ```
 or
-
+ ```
 If you want to work with uploading dataset:
-
+ ```
 python -m etl.main --place data_engineering/data/raw/Skin_cancer.csv --table-name korol
 
 
