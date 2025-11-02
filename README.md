@@ -13,8 +13,27 @@ https://www.kaggle.com/datasets/mahdavi1202/skin-cancer
 https://drive.google.com/drive/folders/1HBtpv8kD75_lFkkOiwhrYzz9TcDml_OP?usp=sharing
 
 # Project Structure
-
-
+ ```
+├── README.md          <- The top-level README for developers using this project.
+├── pyproject.toml     <- Project configuration file with package metadata
+├── ETL                <- ETL project.
+|   │
+|   ├── __init__.py             
+|   ├── extract.py
+|   ├── load.py 
+|   ├── transform.py
+|   └── main.py
+├── notebooks          <- Jupyter notebooks.
+|   └── EDA.ipynb
+└── Experiments
+    ├── data_load.py
+    ├── api_example                
+    │   ├── README.md
+    │   ├── api_reader.py     
+    │   └── pyproject.toml
+    └── src                  
+        └── write_to_db.py
+ ```
 # Project activation guide 
 # Preparation
 Installation Miniconda from official website for your system: 
